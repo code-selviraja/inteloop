@@ -1,16 +1,22 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
+const authRoutes = require('./routes/auth');
 
 // Load env vars
 dotenv.config();
 
-// Connect to database
+// Connect DB
 connectDB();
 
 const app = express();
 
-// Base route
+// Middleware
+app.use(express.json());
+
+// Routes
+app.use('/api/auth', authRoutes);
+
 app.get('/', (req, res) => {
   res.send('Inteloop API is running...');
 });
