@@ -15,7 +15,23 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
+
+// Define allowed origins (Add the URL of your frontend here)
+const allowedOrigins = ['http://localhost:5173']; // Your frontend URL here
+
+// Configure CORS to allow only the specified origin and credentials
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);  // Allow the request
+    } else {
+      callback(new Error('Not allowed by CORS'));  // Reject the request
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Adjust methods if needed
+  credentials: true,  // Allow credentials (cookies, tokens)
+}));
+
 app.use(express.json());
 
 // Routes
