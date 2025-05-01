@@ -4,6 +4,7 @@ const connectDB = require('./config/db');
 const authRoutes = require('./routes/auth');
 const projectRoutes = require('./routes/projectRoutes');
 const feedbackRoutes = require('./routes/feedbackRoutes');
+const uploadRoutes = require('./routes/uploadRoutes');
 
 // Load env vars
 dotenv.config();
@@ -20,7 +21,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/feedback', feedbackRoutes);
-
+app.use('/api/upload', uploadRoutes);
 
 app.get('/', (req, res) => {
   res.send('Inteloop API is running...');
