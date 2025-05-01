@@ -6,6 +6,7 @@ import authRoutes from './routes/auth.js';
 import projectRoutes from './routes/projectRoutes.js';
 import feedbackRoutes from './routes/feedbackRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
+import aiRoutes from './routes/aiRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -17,6 +18,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/feedback', feedbackRoutes);
 app.use('/api/upload', uploadRoutes);
+app.use('/api/ai', aiRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
