@@ -6,6 +6,7 @@ import projectRoutes from './routes/projectRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import aiRoutes from './routes/aiRoutes.js';
 import analyticsRoutes from './routes/analyticsRoutes.js';
+import authRoutes from "./routes/authRoutes.js"
 import { errorHandler } from './middleware/errorHandler.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -40,6 +41,7 @@ app.use('/api/projects', projectRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/analytics', analyticsRoutes);
+app.use("/api/auth", authRoutes);
 
 // Error Handler
 app.use(errorHandler);
