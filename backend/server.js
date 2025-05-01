@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/auth');
 const projectRoutes = require('./routes/projectRoutes');
+const feedbackRoutes = require('./routes/feedbackRoutes');
 
 // Load env vars
 dotenv.config();
@@ -18,6 +19,7 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
+app.use('/api/feedback', feedbackRoutes);
 
 
 app.get('/', (req, res) => {
