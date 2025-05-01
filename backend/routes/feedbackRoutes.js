@@ -1,9 +1,9 @@
-const express = require('express');
-const {
+import express from 'express';
+import {
   createFeedback,
   getFeedbacksByProject,
   deleteFeedback,
-} = require('../controllers/feedbackController');
+} from '../controllers/feedbackController.js';
 
 const router = express.Router();
 
@@ -11,4 +11,4 @@ router.post('/', createFeedback);
 router.get('/:projectId', getFeedbacksByProject);
 router.delete('/:id', deleteFeedback);
 
-module.exports = router;
+export default router;

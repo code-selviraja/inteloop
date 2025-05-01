@@ -1,9 +1,6 @@
-const Project = require('../models/Project');
+import Project from '../models/Project.js';
 
-// @desc    Create a project
-// @route   POST /api/projects
-// @access  Private
-const createProject = async (req, res) => {
+export const createProject = async (req, res) => {
   const { name, description } = req.body;
 
   if (!name) {
@@ -20,10 +17,4 @@ const createProject = async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
-};
-
-// Additional handlers can be added here (getAll, update, delete)
-
-module.exports = {
-  createProject,
 };
