@@ -1,9 +1,17 @@
 import express from 'express';
-import { createProject } from '../controllers/projectController.js';
+import {
+  createProject,
+  getProjects,
+  deleteProject,
+} from '../controllers/projectController.js';
 import { protect } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-router.post('/', protect, createProject);
+router.route('/')
+  .post(protect, createProject)
+  .get(protect, getProjects); 
+
+router.delete('/:id', protect, deleteProject); 
 
 export default router;
