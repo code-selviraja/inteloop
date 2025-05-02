@@ -17,32 +17,12 @@ connectDB();
 
 const app = express();
 
-// ✅ Setup proper CORS configuration
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://inteloop-frontend.onrender.com'
-];
-
+// CORsp
 app.use(cors({
-  origin: function(origin, callback) {
-    // Allow requests with no origin (like Postman)
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-  allowedHeaders: [
-    'Content-Type',
-    'Authorization',
-    'X-Requested-With',
-    'Origin',
-    'Accept'
-  ],
-  credentials: true,
-  maxAge: 7200
-}));
+  origin: "https://localhost:5173",
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}))
 
 app.use(express.json());
 
