@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import DashboardLayout from './layouts/DashboardLayout';
 import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './pages/Dashboard';
+import Projects from './pages/Projects';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -21,7 +22,8 @@ function App() {
         }
       >
         <Route index element={<Dashboard />} />
-        {/* You can add more nested protected routes here */}
+        <Route path="projects" element={<Projects />} />
+        {/* Add more nested protected routes here */}
       </Route>
     </Routes>
   );
