@@ -17,12 +17,9 @@ connectDB();
 
 const app = express();
 
-// CORsp
-app.use(cors({
-  origin: "https://localhost:5173",
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}))
+// Implementing CORs
+app.use(cors());
+app.options('*', cors());
 
 app.use(express.json());
 
