@@ -17,21 +17,20 @@ connectDB();
 
 const app = express();
 
-// Define allowed origins (Add the URL of your frontend here)
-const allowedOrigins = ['*']; // Your frontend URL here
+const allowedOrigins = ['http://localhost:5173', 'https://inteloop-frontend.onrender.com'];
 
-// Configure CORS to allow only the specified origin and credentials
 app.use(cors({
   origin: function(origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);  // Allow the request
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));  // Reject the request
+      callback(new Error('Not allowed by CORS'));
     }
   },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Adjust methods if needed
-  credentials: true,  // Allow credentials (cookies, tokens)
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
 }));
+
 
 app.use(express.json());
 
