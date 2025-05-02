@@ -18,7 +18,7 @@ connectDB();
 const app = express();
 
 // Define allowed origins (Add the URL of your frontend here)
-const allowedOrigins = ['http://localhost:5173']; // Your frontend URL here
+const allowedOrigins = ['*']; // Your frontend URL here
 
 // Configure CORS to allow only the specified origin and credentials
 app.use(cors({
