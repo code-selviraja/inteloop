@@ -18,7 +18,11 @@ connectDB();
 const app = express();
 
 // Implementing CORs
-app.use(cors());
+app.use(cors({
+  origin: true,           // Reflects the request origin
+  credentials: true       // Allows cookies, Authorization headers, etc.
+}));
+
 app.get('/', (req, res) => {
   res.send('CORS enabled for all origins!');
 });
