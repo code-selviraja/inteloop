@@ -19,7 +19,9 @@ const app = express();
 
 // Implementing CORs
 app.use(cors());
-
+app.get('/', (req, res) => {
+  res.send('CORS enabled for all origins!');
+});
 app.use(express.json());
 
 // Routes
