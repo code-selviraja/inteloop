@@ -18,11 +18,7 @@ connectDB();
 const app = express();
 
 // Implementing CORs
-app.use(cors({
-  origin: "*",
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}))
+app.use(cors());
 
 app.use(express.json());
 
